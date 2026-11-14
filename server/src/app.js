@@ -3,6 +3,7 @@ import express from 'express';
 import cors from 'cors';
 import helmet from 'helmet';
 import { pool } from './db/pool.js';
+import joinRequestRoutes from './routes/joinRequest.routes.js';
 
 const app = express();
 
@@ -14,6 +15,8 @@ app.get('/api/health', async (req, res) => {
   await pool.query('SELECT 1');
   res.json({ status: 'ok', database: 'connected' });
 });
+
+app.use('/api/join-requests', joinRequestRoutes);
 
 app.use((req, res) => {
   res.status(404).json({ message: 'Route not found' });
