@@ -3,11 +3,13 @@ import express from 'express';
 import cors from 'cors';
 import helmet from 'helmet';
 import { pool } from './db/pool.js';
+import authRoutes from './routes/auth.routes.js';
 import joinRequestRoutes from './routes/joinRequest.routes.js';
 
 const app = express();
 
 app.use(helmet());
+app.use('/api/auth', authRoutes);
 app.use(cors({ origin: process.env.CLIENT_URL }));
 app.use(express.json({ limit: '10kb' }));
 
