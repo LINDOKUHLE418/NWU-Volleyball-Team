@@ -9,7 +9,6 @@ import joinRequestRoutes from './routes/joinRequest.routes.js';
 const app = express();
 
 app.use(helmet());
-app.use('/api/auth', authRoutes);
 app.use(cors({ origin: process.env.CLIENT_URL }));
 app.use(express.json({ limit: '10kb' }));
 
@@ -18,6 +17,7 @@ app.get('/api/health', async (req, res) => {
   res.json({ status: 'ok', database: 'connected' });
 });
 
+app.use('/api/auth', authRoutes);
 app.use('/api/join-requests', joinRequestRoutes);
 
 app.use((req, res) => {
@@ -26,7 +26,6 @@ app.use((req, res) => {
 
 app.use((err, req, res, next) => {
   console.error(err);
-  res.status(500).json({ message: 'Something went wrong' });
+  res.status(500).json({ message: 'Internal server error' });
 });
-
 export default app;
