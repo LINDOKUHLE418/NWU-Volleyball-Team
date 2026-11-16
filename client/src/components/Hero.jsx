@@ -8,7 +8,7 @@ export default function Hero() {
       id="home"
       className="relative flex min-h-screen items-center justify-center bg-cover bg-center px-4 pt-20"
       style={{
-        backgroundImage: `linear-gradient(rgba(2,6,23,0.75), rgba(2,6,23,0.9)), url(${siteConfig.heroImagePath})`,
+        backgroundImage: `linear-gradient(rgba(2,6,23,0.45), rgba(2,6,23,0.75)), url(${siteConfig.heroImagePath})`,
         backgroundColor: '#020617',
       }}
     >

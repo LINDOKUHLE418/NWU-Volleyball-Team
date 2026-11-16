@@ -6,10 +6,10 @@ export const siteConfig = {
   logoPath: '/images/nw-logo.png',
   heroImagePath: '/images/hero.jpg',
 
-  whatsappLink: '[INSERT WHATSAPP LINK]',
+  whatsappLink: '[https://chat.whatsapp.com/CgOhjFn1tSR26gttsvavDV?s=cl&p=i&iam=2]',
 
   welcomeMessage:
-    'Welcome to the NWU Volleyball Team — a community of passionate volleyball players coming together to compete, grow, and represent NW University.',
+    'Welcome to the NWU Volleyball Team  community of passionate volleyball players coming together to compete, grow, and represent NW University.',
 
   navLinks: [
     { label: 'Home', href: '#home' },

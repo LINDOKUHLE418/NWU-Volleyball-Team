@@ -1,25 +1,32 @@
 import { useState } from 'react';
-import { siteConfig } from '../config/siteConfig';
+import { siteConfig, isRealLink } from '../config/siteConfig';
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
+  const [logoFailed, setLogoFailed] = useState(false);
+  const hasWhatsapp = isRealLink(siteConfig.whatsappLink);
+
+  const whatsappProps = hasWhatsapp
+    ? { href: siteConfig.whatsappLink, target: '_blank', rel: 'noopener noreferrer' }
+    : { href: '#join' };
 
   return (
-    <header className="fixed inset-x-0 top-0 z-40 bg-slate-950/90 backdrop-blur border-b border-white/10">
+    <header className="fixed inset-x-0 top-0 z-40 border-b border-white/10 bg-slate-950/90 backdrop-blur">
       <nav
         className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3"
         aria-label="Main navigation"
       >
-        <a href="#home" className="flex items-center gap-3">
-          <img
-            src={siteConfig.logoPath}
-            alt={`${siteConfig.universityName} logo`}
-            className="h-10 w-auto"
-            onError={(e) => (e.currentTarget.style.display = 'none')}
-          />
-          <span className="font-bold tracking-wide text-white">
-            {siteConfig.teamName}
-          </span>
+        <a href="#home" className="flex items-center" aria-label={siteConfig.teamName}>
+          {logoFailed ? (
+            <span className="font-bold text-white">{siteConfig.teamName}</span>
+          ) : (
+            <img
+              src={siteConfig.logoPath}
+              alt={`${siteConfig.universityName} logo`}
+              className="h-12 w-auto"
+              onError={() => setLogoFailed(true)}
+            />
+          )}
         </a>
 
         <ul className="hidden gap-6 md:flex">
@@ -35,6 +42,7 @@ export default function Navbar() {
           ))}
         </ul>
 
+      
         <button
           type="button"
           className="rounded p-2 text-white md:hidden"
