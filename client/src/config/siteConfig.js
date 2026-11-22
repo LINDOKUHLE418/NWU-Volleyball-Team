@@ -14,7 +14,6 @@ export const siteConfig = {
     { label: 'Home', href: '#home' },
     { label: 'About', href: '#about' },
     { label: 'Our Team', href: '#team' },
-    { label: 'Memories', href: '#gallery' },
     { label: 'Join Us', href: '#join' },
   ],
 
@@ -75,7 +74,7 @@ export const siteConfig = {
   { src: '/images/team/team35.jpg' },
   { src: '/images/team/team36.jpg' },
 ],
-    
+  
 
 
 };
