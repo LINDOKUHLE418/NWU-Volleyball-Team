@@ -13,15 +13,7 @@ export default function Hero() {
       }}
     >
       <div className="max-w-3xl text-center">
-        <img
-          src={siteConfig.logoPath}
-          alt={`${siteConfig.universityName} logo`}
-          className="mx-auto mb-6 h-24 w-auto"
-          onError={(e) => (e.currentTarget.style.display = 'none')}
-        />
-        <h1 className="text-4xl font-extrabold text-white sm:text-6xl">
-          {siteConfig.teamName} <span aria-hidden="true">🏐</span>
-        </h1>
+      
         <p className="mt-6 text-lg text-slate-300">{siteConfig.welcomeMessage}</p>
 
         <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">

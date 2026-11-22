@@ -13,7 +13,7 @@ export default function Navbar() {
   return (
     <header className="fixed inset-x-0 top-0 z-40 border-b border-white/10 bg-slate-950/90 backdrop-blur">
       <nav
-        className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3"
+        className="flex w-full items-center justify-between px-4 py-3 sm:px-8"
         aria-label="Main navigation"
       >
         <a href="#home" className="flex items-center" aria-label={siteConfig.teamName}>
@@ -23,7 +23,7 @@ export default function Navbar() {
             <img
               src={siteConfig.logoPath}
               alt={`${siteConfig.universityName} logo`}
-              className="h-12 w-auto"
+                className="h-12 w-12 rounded-full object-cover rotate-90"
               onError={() => setLogoFailed(true)}
             />
           )}
